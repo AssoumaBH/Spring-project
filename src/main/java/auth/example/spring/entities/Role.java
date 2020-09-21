@@ -1,4 +1,4 @@
-package auth.example.akoum.entities;
+package auth.example.spring.entities;
 
 import javax.persistence.*;
 

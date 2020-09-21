@@ -1,4 +1,4 @@
-package auth.example.akoum.configSecurity;
+package auth.example.spring.configSecurity;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.SignatureException;

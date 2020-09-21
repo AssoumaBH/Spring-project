@@ -1,4 +1,4 @@
-package auth.example.akoum.services;
+package auth.example.spring.services;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -13,9 +13,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import auth.example.akoum.entities.Role;
-import auth.example.akoum.entities.User;
-import auth.example.akoum.repositories.UserRepository;
+import auth.example.spring.entities.Role;
+import auth.example.spring.entities.User;
+import auth.example.spring.repositories.UserRepository;
 
 @Service(value = "userService")
 public class ServiceUserIMPL implements UserDetailsService, IServiceUser{
@@ -40,16 +40,51 @@ public class ServiceUserIMPL implements UserDetailsService, IServiceUser{
 		return list;
 	}
 
+	// post ==> create new user
 	@Override
-	public void delete(int id) {
-		userRepository.deleteById(id);		
+	public User save(User user) {
+		return userRepository.save(user);
 	}
 
 
+	// delete a user by id
+	@Override
+	public void deleteUser(int id) {
+		//User user = userRepository.findById(id);
+		userRepository.deleteById(id);
+		//userRepository.delete(user);
+	}
+
+	// get by id
 	@Override
 	public User findById(int id) {
-		return userRepository.findById(id).get();
+		return userRepository.findById(id);
+
 	}
+
+	// put ==> update user by  id
+	@Override
+	public User updateUser(int id, User user) {
+		User updateUser = userRepository.findById(id);
+		updateUser.setUsername(user.getUsername());
+		updateUser.setPassword(user.getPassword());
+		updateUser.setRole(user.getRole());
+		updateUser.setAge(user.getAge());
+
+		// save in database
+		return userRepository.save(updateUser);
+	}
+//
+//	@Override
+//	public void delete(int id) {
+//		userRepository.deleteById(id);
+//	}
+//
+
+//	@Override
+//	public User findById(int id) {
+//		return userRepository.findById(id).get();
+//	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

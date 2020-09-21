@@ -1,4 +1,4 @@
-package auth.example.akoum.utils;
+package auth.example.spring.utils;
 
 public class AuthToken {
 

@@ -1,4 +1,4 @@
-package auth.example.akoum.configSecurity;
+package auth.example.spring.configSecurity;
 
 import io.jsonwebtoken.*;
 
@@ -10,8 +10,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import auth.example.akoum.entities.User;
-import auth.example.akoum.services.IServiceUser;
+import auth.example.spring.entities.User;
+import auth.example.spring.services.IServiceUser;
 
 import java.io.Serializable;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package auth.example.akoum.configSecurity;
+package auth.example.spring.configSecurity;
 
 import java.io.IOException;
 
