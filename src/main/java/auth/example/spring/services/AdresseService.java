@@ -29,8 +29,8 @@ public class AdresseService implements AdresseDetailsService {
 
     // get by id
     @Override
-    public Adresse findById(int idA) {
-        return adresseRepository.findById(idA);
+    public Adresse findById(int idAd) {
+        return adresseRepository.findById(idAd);
 
     }
 
@@ -43,16 +43,16 @@ public class AdresseService implements AdresseDetailsService {
 
     // delete a todo by id
     @Override
-    public void deleteAdresse(int idA) {
-        Adresse adresse = adresseRepository.findById(idA);
+    public void deleteAdresse(int idAd) {
+        Adresse adresse = adresseRepository.findById(idAd);
         adresseRepository.delete(adresse);
     }
 
 
     // put ==> update todo by  id
     @Override
-    public Adresse updateAdresse(int idA, Adresse adresse) {
-        Adresse updateAdresse = adresseRepository.findById(idA);
+    public Adresse updateAdresse(int idAd, Adresse adresse) {
+        Adresse updateAdresse = adresseRepository.findById(idAd);
         updateAdresse.setAdresse(adresse.getAdresse());
         updateAdresse.setC_poste(adresse.getC_poste());
         updateAdresse.setPays(adresse.getPays());

@@ -1,9 +1,13 @@
 package auth.example.spring.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-public class User {
+@Table(name = "users")
+public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,10 +16,26 @@ public class User {
 	private String username;
 	private String password;
 	private int age;
-	
-	@OneToOne
+
+	@OneToOne(fetch = FetchType.LAZY,
+			cascade =  CascadeType.ALL,
+			mappedBy = "user")
 	private Role role;
-	
+
+
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@JoinTable(name = "User_Adresse",
+			joinColumns = {
+					@JoinColumn(name = "user_id", referencedColumnName = "id",
+							nullable = false, updatable = false)},
+			inverseJoinColumns = {
+					@JoinColumn(name = "adressse_id", referencedColumnName = "idA",
+							nullable = false, updatable = false)})
+	private Set<Adresse> adresse = new HashSet<>();
+
+
+
+
 	public User() {
 		
 	}

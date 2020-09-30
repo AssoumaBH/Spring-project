@@ -12,7 +12,7 @@ import auth.example.spring.services.IServiceUser;
 
 
 @CrossOrigin(origins = "*")
-@RestController("/test")
+@RestController
 public class UserController {
 
 	@Autowired

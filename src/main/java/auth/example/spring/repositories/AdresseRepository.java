@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AdresseRepository  extends JpaRepository<Adresse, String> {
 
-    Adresse findById(int idA);
+    Adresse findById(int idAd);
 
 }

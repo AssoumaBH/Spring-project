@@ -1,11 +1,11 @@
 package auth.example.spring.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Table(name = "adresse")
 public class Adresse {
 
     @Id
@@ -16,6 +16,11 @@ public class Adresse {
     private int c_poste;
     private String ville;
     private String pays;
+
+
+    @ManyToMany(mappedBy = "Adresse", fetch = FetchType.LAZY)
+    private Set<User> users = new HashSet<>();
+
 
     public Adresse() {
     }
